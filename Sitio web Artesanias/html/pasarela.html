@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pasarela de pago</title>
+        <style>
+            form {
+        margin: 20px auto;
+        width: 300px;
+        height: auto;
+        padding: 20px;
+        background-color: #fafafa;
+        border: 1px solid #ccc;
+        font-family: sans-serif;
+        font-size: 14px;
+    }
+
+  label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+  }
+
+  input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+  }
+
+  input[type="submit"] {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+  }
+
+  input[type="submit"]:hover {
+      background-color: #555;
+  }
+            body {
+                font-family: Arial;
+                font-size: 16px;
+                background-color: #f7f7f7;
+            }
+            .container {
+                margin: 20px;
+                
+            }
+            .header {
+                background-color: #423F3E;
+                color: white;
+                padding: 10px;
+                text-align: center;
+                font-family: 'Segoe UI';
+                margin-top: -20px;
+            }
+            .btn {
+                background-color: #0170B9;
+                color: white;
+                padding: 10px;
+                margin: 10px;
+                border-radius: 5px;
+            }
+            .btn:hover {
+                background-color: #043a5e;
+            }
+            .content{
+                color: rgb(0, 0, 0);
+                padding: 10px;
+                text-align: center;
+                font-family: 'Segoe UI';
+                margin: 50px;
+            }
+            .titulo, .titulo1, .titulo2{
+                text-align: center;
+            }
+            .icon-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    img {
+        width: 32px;
+        height: 32px;
+    }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Introduzca los datos de pago - Artesanias Forcar</h1>
+            </div>
+            <div class="content">
+               
+                <h3>Selecciona tu método de pago:</h3>
+                <button class="btn" onclick="showEfecty()">Efecty</button>
+                <button class="btn" onclick="showCredit()">Tarjeta de crédito</button>
+            
+            </div>
+            <div class="form" id="EfectyForm" style="display:none;">
+                <h3 class="titulo">Ingresa tus datos para pagar en puntos Efecty:</h3>
+                <form  method="post" action="../completarpedido.php">
+                    <label>Nombre</label><br />
+                    <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombres" required>
+                    <label>Apellido</label><br />
+                    <input type="text" name="Lastname" placeholder="Apellido" required /><br />
+                    <label>Cedula de ciudadania</label><br />
+                    <input class="controls" type="text" name="documento" id="documento" placeholder="Documento de identidad" required>
+                    <label>Número de télefono</label><br />
+                    <input class="controls" type="text" name="telefono" id="telefono" placeholder="Número de telefono" required>
+                    <label>Dirección de envio</label><br />
+                    <input class="controls" type="text" name="direccion" id="direccion" placeholder="Ingrese dirección de envio" required>
+                    <label>Comentario</label><br />
+                    <input class="controls" type="text" name="comentario" id="comentario" placeholder="comentario"> 
+                    
+                    <label>N° de referencia: #23454534</label><br />
+                    
+                    <input type="submit" value="Pagar" />
+                    <div class="icon-container">
+                    <img src="https://i.pinimg.com/originals/d2/a4/6d/d2a46d0477130e5528d2a6744b35d868.png" alt="Icono4">
+                </div>
+                </form>
+            </div>
+            <div class="form" id="creditForm" style="display:none;">
+                <h3 class="titulo1">Ingresa tus datos de tarjeta de crédito:</h3>
+                <form method="post" action="../completarpedido.php">
+                    <label>Número de tarjeta</label><br />
+                    <input type="text" name="creditNumber" placeholder="Número de Tarjeta" required/><br />
+                    <label>Fecha de vencimiento</label><br />
+                    <input type="text" name="expirationDate" placeholder="Fecha de vencimiento" required/><br />
+                    <label>Código de seguridad</label><br />
+                    <input type="text" name="securityCode" placeholder="CVV" required /><br />
+                    <label>Nombre</label><br />
+                    <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombres" required>
+                    <label>Apellido</label><br />
+                    <input type="text" name="Lastname" placeholder="Apellido" required /><br />
+                    <label>Cedula de ciudadania</label><br />
+                    <input class="controls" type="text" name="documento" id="documento" placeholder="Documento de identidad" required>
+                    <label>Número de télefono</label><br />
+                    <input class="controls" type="text" name="telefono" id="telefono" placeholder="Número de telefono" required>
+                    <label>Dirección de envio</label><br />
+                    <input class="controls" type="text" name="direccion" id="direccion" placeholder="Ingrese dirección de envio" required>
+                    <label>Comentario</label><br />
+                    <input class="controls" type="text" name="comentario" id="comentario" placeholder="comentario"> 
+                    <input type="submit" value="Pagar"  /><br>
+                    <div class="icon-container">
+                        <img src="https://cdn-icons-png.flaticon.com/512/349/349221.png" alt="Icono">
+                        <img src="https://cdn-icons-png.flaticon.com/512/179/179431.png" alt="Icono2">
+                        <img src="https://cdn-icons-png.flaticon.com/512/349/349230.png" alt="Icono3">
+                        </div>
+                </form>
+            
+        </div>
+        <script>
+            function showEfecty() {
+                document.getElementById('EfectyForm').style.display = 'block';
+                document.getElementById('creditForm').style.display = 'none';
+                document.getElementById('deliveryForm').style.display = 'none';
+            }
+            function showCredit() {
+                document.getElementById('EfectyForm').style.display = 'none';
+                document.getElementById('creditForm').style.display = 'block';
+                document.getElementById('deliveryForm').style.display = 'none';
+            }
+        </script>
+    </body>
+</html>
